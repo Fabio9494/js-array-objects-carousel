@@ -33,9 +33,10 @@ prev.addEventListener("click",function(){
     if(i>0){
         i--;
     }
-    img.src = `./${images[i].image}`;
-    title.innerText = images[i].title;
-    text.innerText = images[i].text;
+    else{
+        i=images.length-1;
+    }
+    addDom(i);
 })
 
 let next = document.querySelector(".next");
@@ -43,7 +44,14 @@ next.addEventListener('click', function(){
     if(i<images.length-1){
         i++;
     }
-    img.src = `./${images[i].image}`;
-    title.innerText = images[i].title;
-    text.innerText = images[i].text;
+    else{
+        i=0;
+    }
+    addDom(i);
 });
+
+function addDom(index){
+    img.src = `./${images[index].image}`;
+    title.innerText = images[index].title;
+    text.innerText = images[index].text;
+}
